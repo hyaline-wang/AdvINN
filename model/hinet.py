@@ -12,7 +12,9 @@ class Hinet_stage(nn.Module):
 
 
     def forward(self, x):
+        # 输入一张图 x ,24 通道
         out = self.inv1(x)
+
         out = self.inv2(out)
 
         return out

@@ -31,6 +31,9 @@ transform = transforms.Compose([
 ])
 
 def choose_target(number):
+    # 本函数的model 要从这个文件的顶部看，通过加载已有的预训练网络，推理这个图片最可能是哪个class
+    # 最不可能是哪个 class
+    # 难道这个项目的目标是 让最不可能的变成最可能的
     open_dir = args.inputpath
     pic_dir = os.path.join(open_dir, number)
     pic = os.listdir(pic_dir)[0]
@@ -50,7 +53,7 @@ def choose_target(number):
     class_idx = json.load(open("./util/imagenet_class_index.json"))
     class2label = [class_idx[str(k)][0] for k in range(len(class_idx))]
     target = class2label[target[0]]
-    print(target)
+    print(f"target  {target}")
     return target
 
 

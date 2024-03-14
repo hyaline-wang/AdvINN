@@ -20,7 +20,7 @@ class Dataset(Dataset):
             image = to_rgb(image)
             item = self.transform(image)
             item = item.unsqueeze(0)
-            filename = self.files[index+args.pass_num].split("\\")
+            filename = self.files[index+args.pass_num].split("/")
             classname = filename[len(filename)-2]
             classindex = cindex(classname)
             targetclass = choose_target.choose_target(classname)
